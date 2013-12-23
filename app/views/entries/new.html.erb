@@ -1,0 +1,34 @@
+<h1>Add Entry</h1>
+<%= render 'entries/navigation' %>
+
+<%= form_for(@entry) do |f| %>
+  <% if @entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@entry.errors.count, 'error') %> prohibited this entry from being saved:</h2>
+
+      <ul>
+      <% @entry.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Title: <%= f.text_field :title %><br />
+  </div>
+<br />
+  <div class="field">
+    Description: <%= f.text_area :description %><br />
+  </div>
+<br />
+  <div class="field">
+    Category: <%= collection_select(:entry, :category_id, Category.all, :id, :name) %>
+  </div>
+<br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+  <% end %>
+<br />

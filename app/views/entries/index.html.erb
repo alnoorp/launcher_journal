@@ -1,0 +1,12 @@
+<h1>My Journal</h1>
+
+<%= render 'entries/navigation' %>
+
+<ul>
+  <% @entries.each do |entry| %>
+  <li>
+    <%= link_to "#{entry.title} [#{entry.created_at}]", entry %>
+  </li>
+  <% end %>
+</ul>
+<br />
