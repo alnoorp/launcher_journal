@@ -5,7 +5,7 @@
 <ul>
   <% @entries.each do |entry| %>
   <li>
-    <%= link_to "#{entry.title} [#{entry.created_at}]", entry %>
+    <%= link_to "#{entry.title} [#{entry.created_at}]", entry %> <%= link_to 'Edit', edit_entry_path(entry) %>
   </li>
   <% end %>
 </ul>

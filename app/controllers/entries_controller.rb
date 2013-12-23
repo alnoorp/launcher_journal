@@ -1,4 +1,5 @@
 class EntriesController < ApplicationController
+  # before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
@@ -22,6 +23,19 @@ class EntriesController < ApplicationController
     else
       render action: 'new'
     end
+  end
+
+  def update
+    @entry = Entry.find(params[:id])
+    if @entry.update(entry_params)
+      redirect_to root_path, notice: 'Entry was successfully updated.'
+    else
+      render action: 'edit'
+    end
+  end
+
+  def edit
+    @entry = Entry.find(params[:id])
   end
 
   private

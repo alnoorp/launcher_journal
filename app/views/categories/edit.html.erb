@@ -1,0 +1,26 @@
+<h1>Edit Category</h1>
+<%= render 'entries/navigation' %>
+
+<%= form_for(@category) do |f| %>
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category.errors.count, 'error') %> prohibited this category from being saved:</h2>
+
+      <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Name: <%= f.text_field :name %><br />
+  </div>
+<br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+  <% end %>
+<br />

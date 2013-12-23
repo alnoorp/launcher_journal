@@ -3,4 +3,4 @@
 
 <%= @entry.title %><br />
 <%= @entry.description %><br />
-<%= @entry.category_name %><br />
+<%= @entry.category.try(:name) %><br />
